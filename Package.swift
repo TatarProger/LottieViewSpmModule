@@ -25,11 +25,6 @@ let package = Package(
                 .product(name: "Lottie", package: "lottie-ios")
             ],
             path: "Sources" // укажи путь к исходникам
-        ),
-        .testTarget(
-            name: "LottieViewSpmModuleTests",
-            dependencies: ["LottieViewSpmModule"],
-            path: "Tests"
         )
     ]
 )

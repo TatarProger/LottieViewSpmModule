@@ -4,7 +4,7 @@
 import SwiftUI
 import Lottie
 
-struct LottieView: UIViewRepresentable {
+public struct LottieView: UIViewRepresentable {
     let name: String
     var loopMode: LottieLoopMode = .playOnce
     var onAnimationCompleted: (() -> Void)? = nil
@@ -37,8 +37,12 @@ struct LottieView: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
-struct SplashView: View {
+public struct SplashView: View {
     @Binding var isActive: Bool
+    
+    public init(isActive: Bool) {
+        self.isActive = isActive
+    }
     
     var body: some View {
         LottieView(name: "animation") {
