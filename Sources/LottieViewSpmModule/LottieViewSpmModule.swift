@@ -9,7 +9,7 @@ public struct LottieView: UIViewRepresentable {
     var loopMode: LottieLoopMode = .playOnce
     var onAnimationCompleted: (() -> Void)? = nil
     
-    func makeUIView(context: Context) -> UIView {
+    public func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
         let animationView = LottieAnimationView(name: name)
         animationView.contentMode = .scaleAspectFit
@@ -34,17 +34,17 @@ public struct LottieView: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIView, context: Context) {}
+    public func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
 public struct SplashView: View {
-    @Binding var isActive: Bool
+    @Binding public var isActive: Bool
     
-    public init(isActive: Bool) {
-        self.isActive = isActive
+    public init(isActive: Binding<Bool>) {
+        self._isActive = isActive
     }
     
-    var body: some View {
+    public var body: some View {
         LottieView(name: "animation") {
             withAnimation {
                 isActive = false
